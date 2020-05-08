@@ -35,7 +35,7 @@ const originPath = 'Z:\\Parana Banco\\TI\\Universe\\Milky Way\\Solar System\\Tes
             } else {
 
               //Essa regex é para verificar se o arquivo já não está renomeado no padrão que usamos... (Só para evitar entrar em loop infinito :P)
-              let regexName = new RegExp(/^\-\ \d{2}\-\d{2}\-\d{4}\ \d{3}\.\d{3}\.\d{3}\-\d{2}\ \d{3}\.\d{3}\.\d{3}\-\d{1}\.\w{3}$/)
+              let regexName = new RegExp(/^\-\ \d{4}\-\d{2}\-\d{2}\ \d{3}\.\d{3}\.\d{3}\-\d{2}\ \d{3}\.\d{3}\.\d{3}\-\d{1}\.\w{3}$/)
 
               console.log(path.basename(file))
 
