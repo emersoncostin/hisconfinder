@@ -8,10 +8,10 @@ const crypto = require('crypto');
 const app = express();
 
 //Caminho destino para enviar os arquivos 
-const destination = 'Z:'+path.sep+'Parana Banco'+path.sep+'TI'+path.sep+'Universe'+path.sep+'Milky Way'+path.sep+'Solar System'+path.sep+'TODOS'
+const destination = 'Z:\\Parana Banco\\TI\\Universe\\Milky Way\\Solar System\\TODOS'
 
 //Caminho de origem (Onde irá iniciar a procura por HISCONS)
-const originPath = 'Z:'+path.sep+'Parana Banco'+path.sep+'TI'+path.sep+'Universe'+path.sep+'Milky Way'+path.sep+'Solar System'+path.sep+'Test'
+const originPath = 'Z:\\Parana Banco\\TI\\Universe\\Milky Way\\Solar System\\Test'
 
     //Função que será chamada de forma recursiva
     const getAllFiles = async (dir, extn, files, result, regex) => {
@@ -79,8 +79,8 @@ const originPath = 'Z:'+path.sep+'Parana Banco'+path.sep+'TI'+path.sep+'Universe
                             myDate = splitted[4].split(" ")[0];
                             //Troco as barras por traços...
                             myDate = myDate.replace(/\//g,"-")
-                            //Inverto pro padrão dos EUA, pra ficar o mês primeiro, assim fica ordenado na busca do Windows...
-                            myDate = myDate.substring(3,5) + "-" + myDate.substring(0,3) + myDate.substring(6,10)
+                            //Inverto pro padrão dos EUA, pra ficar o ano primeiro e mês por primeiro, assim fica ordenado na busca do Windows...
+                            myDate =  myDate.substring(6,10) + "-" + myDate.substring(3,5) + "-" + myDate.substring(0,2)
                             //Junto tudo com um traço no começo, só pq SIM :P
                             nameOfFile = "- " + myDate + " " + splitted[9] + " " + splitted[8] + ".pdf";
                         }
@@ -88,7 +88,7 @@ const originPath = 'Z:'+path.sep+'Parana Banco'+path.sep+'TI'+path.sep+'Universe
                         if(test2){
                             myDate = splitted[5].split(" ")[0];
                             myDate = myDate.replace(/\//g,"-")
-                            myDate = myDate.substring(3,5) + "-" + myDate.substring(0,3) + myDate.substring(6,10)
+                            myDate =  myDate.substring(6,10) + "-" + myDate.substring(3,5) + "-" + myDate.substring(0,2)
                             nameOfFile = "- " +  myDate + " " + splitted[10] + " " + splitted[9] + ".pdf";
                         }
     
@@ -123,7 +123,7 @@ const originPath = 'Z:'+path.sep+'Parana Banco'+path.sep+'TI'+path.sep+'Universe
                         }else{
                             console.log("Erro, CPF não encontrado..." + file)
                         }
-                        
+
                 }
 
               }
