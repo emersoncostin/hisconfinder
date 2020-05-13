@@ -48,14 +48,14 @@ const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\B
             //Caso não seja um arquivo já renomeado entra nessa condição
             if(!regexName.test(path.basename(file))){
 
-                //Uso as datas 
-                let data_inicio = new Date(2020,03,01);
+                //Uso as datas para comparar HISCONs mais recentes (Mês começa em 0)
+                let data_inicio = new Date(2020,02,01);
                 let data_arquivo = new Date(fs.statSync(file).mtimeMs)
 
+                console.log(data_inicio)
               //Se o que ele encontrar não for um diretório, então é um Arquivo... Verifico se o arquivo é um PDF através da Regex 
               //Verifico também o tamanho desse arquivo pra verificar se é um HISCON...
-
-
+              //Verifico também se a data de modificação é maior que a data que estipulei
                 if (regex.test(file) && fs.statSync(file).size > 280000 && fs.statSync(file).size < 400000 && data_arquivo > data_inicio) {
                     
                     console.log(fs.statSync(file).mtime)
