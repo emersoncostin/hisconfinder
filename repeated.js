@@ -17,9 +17,9 @@ const repeated = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\REP
 //Caminho de origem (Onde irá iniciar a procura por HISCONS)
 const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\CONSOLIDADOS'
 
-app.listen(8000, () => {
+app.listen(5000, () => {
 
-    console.log('Example app listening on port 8000!');
+    console.log('Example app listening on port 5000!');
   
     files = fs.readdirSync(originPath);
 
@@ -31,7 +31,7 @@ app.listen(8000, () => {
             fs.renameSync(oldPath, newPath)
             console.log(files[i]);
         }
-        
+
     }
 
     console.log("fim")
