@@ -52,13 +52,13 @@ const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\B
                 let data_inicio = new Date(2020,02,01);
                 let data_arquivo = new Date(fs.statSync(file).mtimeMs)
 
-                console.log(data_inicio)
+                console.log(data_arquivo)
               //Se o que ele encontrar não for um diretório, então é um Arquivo... Verifico se o arquivo é um PDF através da Regex 
               //Verifico também o tamanho desse arquivo pra verificar se é um HISCON...
               //Verifico também se a data de modificação é maior que a data que estipulei
                 if (regex.test(file) && fs.statSync(file).size > 280000 && fs.statSync(file).size < 400000 && data_arquivo > data_inicio) {
                     
-                    console.log(fs.statSync(file).mtime)
+                    //console.log(fs.statSync(file).mtime)
                     //Faz o Buffer do arquivo PDF
                     let dataBuffer = fs.readFileSync(file)
                     
