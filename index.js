@@ -16,6 +16,9 @@ const app = express();
 //Caminho destino para enviar os arquivos 
 const destination = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\CONSOLIDADOS'
 
+//Destino de arquivos repetidos
+const repeated = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\REPETIDOS'
+
 //Caminho de origem (Onde irá iniciar a procura por HISCONS)
 const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\BACKUP VEGA\\Earth\\Hiscon'
 
@@ -117,7 +120,7 @@ const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\B
                                 //Caso retornar erro, provavelmente é por que o arquivo já existe...
                                 //Então crio uma HASH aleatória pro nome do arquivo e dou esse nome pra ele, não nos interessa arquivos repetidos aqui...
                                 let id = crypto.randomBytes(20).toString('hex');
-                                let repeatedPath = destination + path.sep + "EXISTENTE "+id+".pdf";
+                                let repeatedPath = repeated + path.sep + "EXISTENTE "+id+".pdf";
                                 try{
                                     fs.renameSync(file, repeatedPath)
                                 }catch(error){
