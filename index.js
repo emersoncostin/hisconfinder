@@ -8,10 +8,16 @@ const crypto = require('crypto');
 const app = express();
 
 //Caminho destino para enviar os arquivos 
-const destination = 'Z:\\Parana Banco\\TI\\Universe\\Milky Way\\Solar System\\TODOS'
+//const destination = 'Z:\\Parana Banco\\TI\\Universe\\Milky Way\\Solar System\\TODOS'
 
 //Caminho de origem (Onde irá iniciar a procura por HISCONS)
-const originPath = 'Z:\\Parana Banco\\TI\\Universe\\Milky Way\\Solar System\\Test'
+//const originPath = 'Z:\\Parana Banco\\TI\\Universe\\Milky Way\\Solar System\\Test'
+
+//Caminho destino para enviar os arquivos 
+const destination = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\CONSOLIDADOS'
+
+//Caminho de origem (Onde irá iniciar a procura por HISCONS)
+const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\BACKUP VEGA\\Earth\\Hiscon'
 
     //Função que será chamada de forma recursiva
     const getAllFiles = async (dir, extn, files, result, regex) => {
@@ -41,10 +47,18 @@ const originPath = 'Z:\\Parana Banco\\TI\\Universe\\Milky Way\\Solar System\\Tes
 
             //Caso não seja um arquivo já renomeado entra nessa condição
             if(!regexName.test(path.basename(file))){
+
+                //Uso as datas 
+                let data_inicio = new Date(2020,03,01);
+                let data_arquivo = new Date(fs.statSync(file).mtimeMs)
+
               //Se o que ele encontrar não for um diretório, então é um Arquivo... Verifico se o arquivo é um PDF através da Regex 
               //Verifico também o tamanho desse arquivo pra verificar se é um HISCON...
-                if (regex.test(file) && fs.statSync(file).size > 280000 && fs.statSync(file).size < 400000) {
 
+
+                if (regex.test(file) && fs.statSync(file).size > 280000 && fs.statSync(file).size < 400000 && data_arquivo > data_inicio) {
+                    
+                    console.log(fs.statSync(file).mtime)
                     //Faz o Buffer do arquivo PDF
                     let dataBuffer = fs.readFileSync(file)
                     
