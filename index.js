@@ -45,8 +45,8 @@ const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\B
 
               //Essa regex é para verificar se o arquivo já não está renomeado no padrão que usamos... (Só para evitar entrar em loop infinito :P)
               let regexName = new RegExp(/^\-\ \d{4}\-\d{2}\-\d{2}\ \d{3}\.\d{3}\.\d{3}\-\d{2}\ \d{3}\.\d{3}\.\d{3}\-\d{1}\.\w{3}$/)
-
-              console.log(path.basename(file))
+              console.log("-------------------------------------------------")
+              console.log("Caminho antigo:" + file)
 
             //Caso não seja um arquivo já renomeado entra nessa condição
             if(!regexName.test(path.basename(file))){
@@ -55,7 +55,7 @@ const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\B
                 let data_inicio = new Date(2018,02,01);
                 let data_arquivo = new Date(fs.statSync(file).mtimeMs)
 
-                console.log(data_arquivo)
+                //console.log(data_arquivo)
               //Se o que ele encontrar não for um diretório, então é um Arquivo... Verifico se o arquivo é um PDF através da Regex 
               //Verifico também o tamanho desse arquivo pra verificar se é um HISCON...
               //Verifico também se a data de modificação é maior que a data que estipulei
