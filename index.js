@@ -111,11 +111,14 @@ const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\B
     
                         //O novo caminho que o arquivo irá, já com seu novo nome...
                         let newPath = destination + path.sep + nameOfFile;
+                        let pathWithDate = destination + path.sep + myDate.substring(0,7) + path.sep + nameOfFile
     
                         if(newPath != ""){
                             try  {
                                 //Tento enviar o arquivo pro novo destino....
-                                fs.renameSync(file, newPath)
+                                //fs.renameSync(file, newPath) 
+                                fs.renameSync(newPath, pathWithDate)
+                                
                             }catch(error){
                                 //Caso retornar erro, provavelmente é por que o arquivo já existe...
                                 //Então crio uma HASH aleatória pro nome do arquivo e dou esse nome pra ele, não nos interessa arquivos repetidos aqui...
