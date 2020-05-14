@@ -118,7 +118,7 @@ const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\B
                                 //Tento enviar o arquivo pro novo destino....
                                 //fs.renameSync(file, newPath) 
                                 fs.renameSync(file, pathWithDate)
-
+                                console.log("Novo caminho:" + pathWithDate);
                             }catch(error){
                                 //Caso retornar erro, provavelmente é por que o arquivo já existe...
                                 //Então crio uma HASH aleatória pro nome do arquivo e dou esse nome pra ele, não nos interessa arquivos repetidos aqui...
@@ -126,6 +126,7 @@ const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\B
                                 let repeatedPath = repeated + path.sep + "EXISTENTE "+id+".pdf";
                                 try{
                                     fs.renameSync(file, repeatedPath)
+                                    console.log("EXISTENTE")
                                 }catch(error){
                                     //Caso ele de um erro novamente eu ignoro e vou em frente... Pode ser que o arquivo esteja aberto ou outro erro desconhecido
                                     continue;
@@ -134,7 +135,7 @@ const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\B
 
                         }
                             
-                        console.log("Novo caminho:" + pathWithDate);
+                        
 
                         }else{
                             console.log("Erro, REGEX do CPF não está correta: " + file + "-----"+ splitted[9] + "ou" + splitted[10])
