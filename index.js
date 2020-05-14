@@ -117,7 +117,7 @@ const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\B
                             try  {
                                 //Tento enviar o arquivo pro novo destino....
                                 //fs.renameSync(file, newPath) 
-                                fs.renameSync(newPath, pathWithDate)
+                                fs.renameSync(file, pathWithDate)
 
                             }catch(error){
                                 //Caso retornar erro, provavelmente é por que o arquivo já existe...
