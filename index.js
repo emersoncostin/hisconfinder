@@ -20,7 +20,7 @@ const destination = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\
 const repeated = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\REPETIDOS'
 
 //Caminho de origem (Onde irá iniciar a procura por HISCONS)
-const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\BACKUP VEGA\\Earth\\Hiscon'
+const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\BACKUP VEGA\\Earth\\05052020'
 
     //Função que será chamada de forma recursiva
     const getAllFiles = async (dir, extn, files, result, regex) => {
@@ -52,7 +52,7 @@ const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\B
             if(!regexName.test(path.basename(file))){
 
                 //Uso as datas para comparar HISCONs mais recentes (Mês começa em 0)
-                let data_inicio = new Date(2020,02,01);
+                let data_inicio = new Date(2018,02,01);
                 let data_arquivo = new Date(fs.statSync(file).mtimeMs)
 
                 console.log(data_arquivo)
@@ -118,7 +118,7 @@ const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\B
                                 //Tento enviar o arquivo pro novo destino....
                                 //fs.renameSync(file, newPath) 
                                 fs.renameSync(newPath, pathWithDate)
-                                
+
                             }catch(error){
                                 //Caso retornar erro, provavelmente é por que o arquivo já existe...
                                 //Então crio uma HASH aleatória pro nome do arquivo e dou esse nome pra ele, não nos interessa arquivos repetidos aqui...
@@ -134,7 +134,7 @@ const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\B
 
                         }
                             
-                        console.log("Novo caminho:" + nameOfFile);
+                        console.log("Novo caminho:" + pathWithDate);
 
                         }else{
                             console.log("Erro, REGEX do CPF não está correta: " + file + "-----"+ splitted[9] + "ou" + splitted[10])
