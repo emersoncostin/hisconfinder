@@ -21,7 +21,7 @@ const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\C
 
 app.listen(7000, () => {
 
-    console.log('Example app listening on port 7000!');
+    console.log('app listening on port 7000!');
 
     let files = fs.readdirSync(originPath);
   

@@ -182,7 +182,7 @@ async function readPdfFile(buffer, filePath){
 
 app.listen(8000, () => {
 
-  console.log('Example app listening on port 8000!');
+  console.log('app listening on port 8000!');
 
   //Inicia o script passando como parâmetro o primeiro local a procurar... E também a extensão que será procurada...
   //Irá continuar procurando de forma recursiva em todos os diretórios à seguir...
