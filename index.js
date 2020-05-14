@@ -152,6 +152,8 @@ const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\B
             }
         }
         console.log(" ");
+        console.log(" ");
+        console.log("Diretorio:" + dir)
         console.log("////////////////////////")
         console.log("/// PASTA FINALIZADA ///");
         console.log("////////////////////////")
