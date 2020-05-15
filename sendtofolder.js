@@ -4,6 +4,8 @@ const readpdf = require('pdf-parse');
 const path = require('path');
 const fs = require('fs');
 const crypto = require('crypto');
+const util = require('util');
+
 
 const randomFile = require('random-file')
 
@@ -35,10 +37,16 @@ app.listen(7000, () => {
         let stat = fs.lstatSync(bla);
         if (stat.isFile()) {
             let oldPath = originPath + path.sep + files[i];
-            let newPath = originPath + path.sep + files[i].substring(2,9);
+            let newPath = originPath + path.sep + files[i].substring(2,9) + path.sep + files[i];
+            try  {
+                fs.renameSync(oldPath, newPath)
+                console.log(files[i])
+            }catch(error){
+                const name = util.getSystemErrorName(error.errno);
+                console.error(name);  // ENOENT
+            }
             
-            fs.renameSync(oldPath, newPath)
-            console.log(files[i])
+            
         }
     } 
 
