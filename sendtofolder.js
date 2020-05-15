@@ -7,21 +7,25 @@ const crypto = require('crypto');
 const util = require('util');
 
 
+//Arquivo de variaveis de CAMINHOS...
+const variables = require('./variables');
+
 const randomFile = require('random-file')
 
 const app = express();
 
 
 //Caminho destino para enviar os arquivos 
-const destination = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\CONSOLIDADOS'
+const destination = variables.destination;
 
 //Destino de arquivos repetidos
-const repeated = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\REPETIDOS'
+const repeated = variables.repeated
 
 //Caminho de origem (Onde irá iniciar a procura por HISCONS)
-const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\CONSOLIDADOS'
+const originPath = variables.originPath
 
-app.listen(7000, () => {
+
+app.listen(9000, () => {
 
     console.log('app listening on port 7000!');
 

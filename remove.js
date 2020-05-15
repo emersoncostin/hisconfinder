@@ -5,22 +5,19 @@ const path = require('path');
 const fs = require('fs');
 const crypto = require('crypto');
 
+//Arquivo de variaveis de CAMINHOS...
+const variables = require('./variables');
+
 const app = express();
 
 //Caminho destino para enviar os arquivos 
-//const destination = 'Z:\\Parana Banco\\TI\\Universe\\Milky Way\\Solar System\\TODOS'
-
-//Caminho de origem (Onde irá iniciar a procura por HISCONS)
-//const originPath = 'Z:\\Parana Banco\\TI\\Universe\\Milky Way\\Solar System\\Test'
-
-//Caminho destino para enviar os arquivos 
-const destination = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\CONSOLIDADOS'
+const destination = variables.destination;
 
 //Destino de arquivos repetidos
-const repeated = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\REPETIDOS'
+const repeated = variables.repeated
 
 //Caminho de origem (Onde irá iniciar a procura por HISCONS)
-const originPath = '\\\\vega\\Operações\\Parana Banco\\TI\\Universe\\Milky Way\\Solar System\\Earth\\Hiscon'
+const originPath = variables.originPath
 
     //Função que será chamada de forma recursiva
     const getAllFiles = async (dir, extn, files, result, regex) => {
