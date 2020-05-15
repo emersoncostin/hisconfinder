@@ -20,7 +20,7 @@ const destination = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\
 const repeated = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\REPETIDOS'
 
 //Caminho de origem (Onde irá iniciar a procura por HISCONS)
-const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\BACKUP VEGA\\Earth\\Hiscon'
+const originPath = '\\\\vega\\Operações\\Parana Banco\\TI\\Universe\\Milky Way\\Solar System\\Earth\\Hiscon'
 
     //Função que será chamada de forma recursiva
     const getAllFiles = async (dir, extn, files, result, regex) => {
@@ -125,7 +125,8 @@ const originPath = '\\\\192.168.188.52\\c$\\Users\\marcelo.fernandes\\Desktop\\B
                                 let id = crypto.randomBytes(20).toString('hex');
                                 let repeatedPath = repeated + path.sep + "EXISTENTE "+id+".pdf";
                                 try{
-                                    fs.renameSync(file, repeatedPath)
+                                    //fs.renameSync(file, repeatedPath)
+                                    fs.unlinkSync(file);
                                     console.log("EXISTENTE")
                                 }catch(error){
                                     //Caso ele de um erro novamente eu ignoro e vou em frente... Pode ser que o arquivo esteja aberto ou outro erro desconhecido
@@ -180,7 +181,7 @@ async function readPdfFile(buffer, filePath){
 }
 
 
-app.listen(8000, () => {
+app.listen(6000, () => {
 
   console.log('app listening on port 8000!');
 
