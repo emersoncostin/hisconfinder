@@ -32,13 +32,21 @@ const originPath = variables.originPath
             
             let file =  path.join(dir, files[i]);
             //Se ele encontrar um diretório entra nesse diretório... E chama novamente a função...
-            if (fs.statSync(file).isDirectory()) {
+            let typeOfFile
+            try{
+                typeOfFile = fs.statSync(file).isDirectory()
+            }catch(error){
+                typeOfFile = "error"
+                console.log(error);
+                continue;
+            }
+            if (typeOfFile) {
                 try {
                     result = getAllFiles(file, extn, fs.readdirSync(file), result, regex);
                 } catch (error) {
                     continue;
                 }
-            } else {
+            } else if(typeOfFile != "error") {
 
               //Essa regex é para verificar se o arquivo já não está renomeado no padrão que usamos... (Só para evitar entrar em loop infinito :P)
               let regexName = new RegExp(/^\-\ \d{4}\-\d{2}\-\d{2}\ \d{3}\.\d{3}\.\d{3}\-\d{2}\ \d{3}\.\d{3}\.\d{3}\-\d{1}\.\w{3}$/)
