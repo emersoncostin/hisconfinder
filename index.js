@@ -19,6 +19,8 @@ const repeated = variables.repeated
 //Caminho de origem (Onde irá iniciar a procura por HISCONS)
 const originPath = variables.originPath
 
+var totalCount = 0;
+
     //Função que será chamada de forma recursiva
     const getAllFiles = async (dir, extn, files, result, regex) => {
         //arquivos e pastas encontradas...
@@ -124,6 +126,9 @@ const originPath = variables.originPath
                                 //fs.renameSync(file, newPath) 
                                 fs.renameSync(file, pathWithDate)
                                 console.log("Novo caminho:" + pathWithDate);
+                                totalCount++;
+                                console.log(totalCount);
+                                
                             }catch(error){
                                 //Caso retornar erro, provavelmente é por que o arquivo já existe...
                                 //Então crio uma HASH aleatória pro nome do arquivo e dou esse nome pra ele, não nos interessa arquivos repetidos aqui...
