@@ -129,9 +129,10 @@ const originPath = variables.originPath
                                 //Então crio uma HASH aleatória pro nome do arquivo e dou esse nome pra ele, não nos interessa arquivos repetidos aqui...
                                 let id = crypto.randomBytes(20).toString('hex');
                                 let repeatedPath = repeated + path.sep + "EXISTENTE "+id+".pdf";
-                                console.log("EXISTENTE")
+                                
                                 try{
                                     fs.renameSync(file, repeatedPath)
+                                    console.log("EXISTENTE")
                                 }catch(error){
                                     console.log("ERRO DESCONHECIDO")
                                     //Caso ele de um erro novamente eu ignoro e vou em frente... Pode ser que o arquivo esteja aberto ou outro erro desconhecido
