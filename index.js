@@ -118,7 +118,6 @@ const originPath = variables.originPath
                         let newPath = destination + path.sep + nameOfFile;
                         let pathWithDate = destination + path.sep + myDate.substring(0,7) + path.sep + nameOfFile
     
-                        console.log(pathWithDate)
                         if(pathWithDate != ""){
                             try  {
                                 //Tento enviar o arquivo pro novo destino....
@@ -155,7 +154,7 @@ const originPath = variables.originPath
                 }
 
               }else{
-                  console.log("ARQUIVO JÁ RENOMEADO, IGNORANDO")
+                  console.log("ARQUIVO JÁ RENOMEADO, IGNORANDO");
               }
 
             }
